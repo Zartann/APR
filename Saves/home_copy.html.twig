@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Album Promo Rouje - Calendrier</title>
+        <link rel='stylesheet' type='text/css' href='{{ asset('static/css/cupertino/jquery-ui-1.8.24.custom.css') }}' />
+        <link rel='stylesheet' type='text/css' href='{{ asset('static/css/fullcalendar.css') }}' />
+        <script type='text/javascript' src='{{ asset('static/js/jquery-1.8.2.min.js') }}'></script>
+        <script type='text/javascript' src='{{ asset('static/js/jquery-ui-1.8.24.custom.min.js') }}'></script>
+        <script type='text/javascript' src='{{ asset('static/js/fullcalendar.min.js') }}'></script>
+        <script type='text/javascript' src='{{ asset('static/js/common.js') }}'></script>
+        <script type='text/javascript' src='{{ asset('static/js/visitor.js') }}'></script>
+        <script type='text/javascript'>
+            $(document).ready(function() {
+                visitor.init({{admin}});
+            });
+        </script>
+        <style type='text/css'>
+
+            body {
+                margin-top: 40px;
+                text-align: center;
+                font-size: 13px;
+                font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+            }
+
+            #calendar {
+                width: 1200px;
+                margin: 0 auto;
+            }
+
+            #topbar {
+                padding 10px;
+                background-color: #eee;
+                border: 1px solid #ccc;
+                display: inline-block;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="topbar" style="margin-bottom:5px">
+            <div style="margin:10px;">
+                N'hésitez pas à faire défiler pour voir les créneaux du soir.<br/>
+                Les photos seront prises dans la salle de réunion de la 5° compagnie.
+                <br/>
+                Ton surnom est  <button id="surname-button">le changer</button>
+                {% if admin %}
+                    <button id="admin-button"> Site admin </button>
+                {% endif %}
+                <button id="logout-button">Se déconnecter</button>
+                <br/>Besoin d'inspiration pour ta photo ? Aucun créneau de ne convient ? Tu as peur d'être moche ? N'hésite pas à en <a href="mailto:photo@apr.eltrai.net">discuter avec des gens du Binet APR</a> !
+            </div>
+        </div>
+        <div id='calendar'></div>
+    </body>
+</html>

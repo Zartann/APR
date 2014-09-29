@@ -1,0 +1,97 @@
+# apr_site_homepage:
+    # path:     /hello/{name}
+    # defaults: { _controller: APRSiteBundle:Default:index }
+
+apr_site_root:
+    pattern: /
+    defaults: { _controller: APRSiteBundle:Home:index }
+
+apr_site_home:
+    pattern: /home
+    defaults: { _controller: APRSiteBundle:Home:index }
+
+apr_site_adminhome:
+    pattern: /admin
+    defaults: { _controller: APRSiteBundle:Home:admin }
+
+apr_site_login:
+    pattern: /login
+    defaults: { _controller: APRSiteBundle:Home:login }
+
+apr_site_logged:
+    pattern: /logged
+    defaults: { _controller: APRSiteBundle:Home:logged }
+
+apr_site_logout:
+    pattern: /logout
+    defaults: { _controller: APRSiteBundle:Home:logout }
+
+apr_site_register:
+    pattern: /register
+    defaults: { _controller: APRSiteBundle:Home:register }
+
+# ----------
+#JSON
+# ----------
+
+apr_site_json_list:
+    pattern: /json/visitor/list
+    defaults: { _controller: APRSiteBundle:json:list }
+
+apr_site_reserver:
+    pattern: /json/visitor/reserver/{id}
+    defaults: { _controller: APRSiteBundle:json:reserver }
+    requirements: 
+        id: \d+
+
+apr_site_json_annuler:
+    pattern: /json/visitor/annuler
+    defaults: { _controller: APRSiteBundle:json:annuler }
+
+apr_site_admin_list:
+    pattern: /json/admin/list
+    defaults: { _controller: APRSiteBundle:jsonAdmin:list }
+
+apr_site_admin_creer_creneau:
+    pattern: /json/admin/creneau/creer/{debut}/{fin}
+    defaults: { _controller: APRSiteBundle:jsonAdmin:creerCreneau }
+    requirements:
+        debut: \d+
+        fin: \d+
+
+apr_site_admin_modif_creneau:
+    pattern: /json/admin/creneau/modif/{id}/{debut}/{fin}
+    defaults: { _controller: APRSiteBundle:jsonAdmin:modifCreneau }
+    requirements:
+        id: \d+
+        debut: \d+
+        fin: \d+
+
+apr_site_admin_supprimer_creneau:
+    pattern: /json/admin/creneau/suppr/{id}
+    defaults: { _controller: APRSiteBundle:jsonAdmin:supprCreneau }
+    requirements:
+        id: \d+
+
+apr_site_admin_assign:
+    pattern: /json/admin/assign/{userid}/{creneauid}
+    defaults: { _controller: APRSiteBundle:jsonAdmin:assign }
+    requirements:
+        userid: \d+
+        creneauid: \d+
+
+apr_site_admin_creer_utilisateur:
+    pattern: /json/admin/user/creer
+    defaults: { _controller: APRSiteBundle:jsonAdmin:creerUser }
+
+apr_site_admin_update_utilisateur:
+    pattern: /json/admin/user/modif/{id}
+    defaults: { _controller: APRSiteBundle:jsonAdmin:modifUser }
+    requirements:
+        id: \d+
+
+apr_site_admin_suppr_utilisateur:
+    pattern: /json/admin/user/suppr/{id}
+    defaults: { _controller: APRSiteBundle:jsonAdmin:supprUser }
+    requirements:
+        id: \d+

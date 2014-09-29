@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Album Promo Rouje{% endblock %}</title>
+        {% block javascripts %}
+        <script type='text/javascript' src='{{ asset('static/js/jquery-1.8.2.min.js') }}'></script>
+        <script type='text/javascript' src='{{ asset('static/js/jquery-ui-1.8.24.custom.min.js') }}'></script>
+        <script type='text/javascript' src='{{ asset('static/js/fullcalendar.min.js') }}'></script>
+        <script type='text/javascript' src='{{ asset('static/js/common.js') }}'></script>
+        {% block visitor_admin %}
+        <script type='text/javascript' src='{{ asset('static/js/visitor.js') }}'></script>
+        <script type='text/javascript'>
+            $(document).ready(function() {
+                visitor.init({{admin}});
+            });
+        </script>
+        {% endblock %}
+        {% endblock %}
+        {% block stylesheets %}
+        <link rel='stylesheet' type='text/css' href='{{ asset('static/css/cupertino/jquery-ui-1.8.24.custom.css') }}' />
+        <link rel='stylesheet' type='text/css' href='{{ asset('static/css/fullcalendar.css') }}' />
+        <link rel='stylesheet' type='text/css' href='{{ asset('static/css/style.css') }}' />
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+    </body>
+</html>

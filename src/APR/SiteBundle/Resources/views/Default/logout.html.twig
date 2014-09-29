@@ -1,0 +1,16 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+{{ parent() }} - Au Revoir
+{% endblock %}
+
+{% block body %}
+<div id="topbar">
+	<div style="margin:10px;">
+		Tu t'es bien déconnecté du site de l'album promo. <br/><br/>
+		Toutefois si tu es en connection permanente sur frankiz, tu sera automatiquement réauthentifié sur le site lors de ta prochaine visite.<br/>
+		Pour empêcher cela, <a href="https://www.frankiz.net/exit">ferme ta session sur frankiz</a>
+	</div>
+</div>
+<div id='calendar'></div>
+{% endblock %}

@@ -1,0 +1,7 @@
+parameters:
+#    apr_site.example.class: APR\SiteBundle\Example
+
+services:
+#    apr_site.example:
+#        class: %apr_site.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

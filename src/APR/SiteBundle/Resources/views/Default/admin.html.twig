@@ -1,0 +1,91 @@
+{% extends ::base.html.twig %}
+
+{% block title %}
+{{ parent() }} - Administration
+{% endblock %}
+
+{% block visitor_admin %}
+<script type='text/javascript' src='/static/js/admin.js'></script>
+<script type='text/javascript'>
+	$(document).ready(function() {
+		admin.init();
+	});
+</script>
+{% endblock %}
+
+{% block stylesheets %}
+{{ parent(); }}
+<style type='text/css'>
+	body {
+		margin-top: 40px;
+		text-align: center;
+		font-size: 14px;
+		font-family: "lucida grande", helvetica, arial, verdana, sans-serif;
+	}
+	
+	#calendar {
+		float: right;
+		width: 900px;
+	}
+</style>
+{% endblock %}
+
+{% block body %}
+<div id='wrap'>
+	<div id='sidebar'>
+		<p>
+			<button id="reload-button">Recharger</button>
+		</p>
+		<p>
+			<button id="visitor-button">Site Visiteur</button>
+		</p>
+		<h4>Nouveaux Créneaux</h4>
+		<div class='droppable-slot'></div>
+		<div class='droppable-slot'></div>
+		<div class='droppable-slot'></div>
+		<div class='droppable-slot'></div>
+		<div class='droppable-slot'></div>
+
+		<h4>Utilisateurs</h4>
+		<input id="user-combo" />
+		<p>
+			<span id="user-when-slot"></span>
+		</p>
+		<div id="user-other-buttons">
+			<p>
+				<button id="user-modify-button">Modifier</button>
+			</p>
+			<p>
+				<button id="user-delete-button">Supprimer</button>
+			</p>
+		</div>
+		<p>
+			<button id="user-new-button">Nouveau non-Frankiz</button>
+		</p>
+		<h4>Créneau</h4>
+		<p>
+			<input id="slot-combo" />
+		</p>
+		<p>
+			<button id="slot-assign-button">Assigner</button>
+		</p>
+		<p>
+			<button id="slot-destroy-button">Détruire</button>
+		</p>
+	</div>
+
+	<div id='calendar'></div>
+
+	<div style="display: none">
+		<div id="user-modal">
+			<p>
+				Nom : <input id="user-modal-name" type=text />
+			</p>
+			<p>
+				Email : <input id="user-modal-email" type=text />
+			</p>
+		</div>
+	</div>
+	<div style='clear: both'></div>
+</div>
+{% endblock %}
