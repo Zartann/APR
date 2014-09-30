@@ -11,7 +11,7 @@ apr_site_home:
     defaults: { _controller: APRSiteBundle:Home:index }
 
 apr_site_adminhome:
-    pattern: /admin
+    pattern: /gth
     defaults: { _controller: APRSiteBundle:Home:admin }
 
 apr_site_login:
@@ -23,7 +23,7 @@ apr_site_logged:
     defaults: { _controller: APRSiteBundle:Home:logged }
 
 apr_site_logout:
-    pattern: /logout
+    pattern: /exit
     defaults: { _controller: APRSiteBundle:Home:logout }
 
 apr_site_register:

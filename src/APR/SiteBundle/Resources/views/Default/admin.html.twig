@@ -1,4 +1,4 @@
-{% extends ::base.html.twig %}
+{% extends '::base.html.twig' %}
 
 {% block title %}
 {{ parent() }} - Administration
@@ -14,7 +14,7 @@
 {% endblock %}
 
 {% block stylesheets %}
-{{ parent(); }}
+{{ parent() }}
 <style type='text/css'>
 	body {
 		margin-top: 40px;

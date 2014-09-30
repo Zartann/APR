@@ -18,7 +18,7 @@ class HomeController extends Controller
         $request = $this->get('request');
         if($request->getMethod() == 'POST') {
             //Pour activer la modification de pseudo, il faut retirer la ligne suivante et modifier la vue.
-            return registerAction(); 
+            //return registerAction(); 
             $em = $this->getDoctrine()->getEntityManager();
             $user->setSurnom($request->request->get('surnom'));
             $em->persist($user);
@@ -30,9 +30,9 @@ class HomeController extends Controller
 
     public function adminAction()
     {
-        if(!$this->get('session')->get('admin')) {
-            header("HTTP/1.1 403 Access Denied"); exit();
-        }
+        // if(!$this->get('session')->get('admin')) {
+            // header("HTTP/1.1 403 Access Denied"); exit();
+        // }
         return $this->render('APRSiteBundle:Default:admin.html.twig');
     }
 
@@ -80,7 +80,7 @@ class HomeController extends Controller
     public function logoutAction()
     {
         $this->get('session')->clear();
-        return $this->render('APRSiteBundle:Default:logout.html.twig', array());
+        return $this->render('APRSiteBundle:Default:logout.html.twig', array('admin' => $this->get('session')->get('admin')));
     }
 
     public function registerAction()

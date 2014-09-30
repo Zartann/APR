@@ -125,7 +125,7 @@ var visitor = (function(){
             });
 
             $("#logout-button").button().click(function(){
-                location.href = "logout";
+                location.href = "exit";
             });
 
             if(admin == 1){
