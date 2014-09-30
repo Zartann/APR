@@ -10,7 +10,7 @@
 		N'hésitez pas à faire défiler pour voir les créneaux du soir.<br/>
 		Les photos seront prises dans la salle de réunion de la 5° compagnie.
 		<br/>
-		Ton surnom est  <button id="surname-button">le changer</button>
+		Ton surnom est {{ user.surnom }} <button id="surname-button">le changer</button>
 		{% if admin %}
 			<button id="admin-button"> Site admin </button>
 		{% endif %}

@@ -7,11 +7,13 @@ use APR\SiteBundle\Entity\Utilisateur;
 
 class HomeController extends Controller
 {
+    private $frkzKey = 's9%32k&5u7#Ip4';
+
     public function indexAction()
     {
         $user = $this->getLoggedUser();
         if($user == false)
-          //return $this->redirect($this->generateUrl("apr_site_login"));
+          return $this->redirect($this->generateUrl("apr_site_login"));
         
         $request = $this->get('request');
         if($request->getMethod() == 'POST') {
@@ -39,7 +41,7 @@ class HomeController extends Controller
         $champs = json_encode(array('names', 'rights', 'email', 'promo'));
         $time = time();
         $site = 'http://' . $_SERVER['SERVER_NAME'] . $this->generateUrl("apr_site_logged");
-        $hash = md5($time . $site . 'aAFqEt60' . $champs);
+        $hash = md5($time . $site . $this->frkzKey . $champs);
         return $this->redirect("https://www.frankiz.net/remote?timestamp=" . time() . "&site=" . $site . "&hash=" . $hash . "&request=" . $champs);
     }
 
@@ -50,10 +52,10 @@ class HomeController extends Controller
         $time = $request->query->get('timestamp');
         $response = $request->query->get('response');
         $hash = $request->query->get('hash');
-        if((abs($time - time()) > 180) || md5($time . 'aAFqEt60' . $response) != $hash)
+        if((abs($time - time()) > 180) || md5($time . $this->frkzKey . $response) != $hash)
             return $this->redirect($this->generateUrl("apr_site_login"));
         $response = json_decode($response, true);
-        if($response['promo'] != 2010)
+        if($response['promo'] != 2012)
             exit('Désolé, mais ce site est réservé à la promo 2010');
         $em = $this->getDoctrine()->getEntityManager();
         $user = $em->getRepository('APRSiteBundle:Utilisateur')->findOneBy(array('hruid'=>$response['hruid']));
