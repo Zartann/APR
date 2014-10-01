@@ -7,13 +7,10 @@ use APR\SiteBundle\Entity\Creneau;
 use APR\SiteBundle\Entity\Utilisateur;
 
 class jsonAdminController extends jsonController {
-
-    private $frkzKey = 's9%32k&5u7#Ip4';
-
     public function checkAdmin() {
-        if(!$this->get('session')->get('admin')) {
-            header("HTTP/1.1 403 Access Denied"); exit();
-        }
+        // if(!$this->get('session')->get('admin')) {
+            // header("HTTP/1.1 403 Access Denied"); exit();
+        // }
     }
 
     public function listAction() {
@@ -148,6 +145,8 @@ class jsonAdminController extends jsonController {
         }
         $query->setParameter('debut', $debut);
         $query->setParameter('fin', $fin);
-        return ($query->getSingleResult() > 0);
+        $result = $query->getSingleResult();
+        var_dump($result);
+        return ($result[1] > 0);
     }   
 }

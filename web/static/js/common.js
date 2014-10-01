@@ -4,7 +4,7 @@ var params = {
     firstHour: 8,
     lastHour: 22,
 
-    baseUrl: "/json/",
+    baseUrl: "/app_dev.php/json/",
 
     fullCalendarLocale: {
         monthNames: ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"],
