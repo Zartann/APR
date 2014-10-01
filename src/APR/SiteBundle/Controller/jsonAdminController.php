@@ -146,7 +146,7 @@ class jsonAdminController extends jsonController {
         $query->setParameter('debut', $debut);
         $query->setParameter('fin', $fin);
         $result = $query->getSingleResult();
-        var_dump($result);
+        
         return ($result[1] > 0);
     }   
 }
